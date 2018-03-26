@@ -1,5 +1,5 @@
-resource "google_compute_forwarding_rule" "front-forwarding-rule" {
-  name       = "front-forwarding-rule"
+resource "google_compute_forwarding_rule" "http" {
+  name       = "http"
   target     = "${google_compute_target_pool.default.self_link}"
   port_range = "80"
 }
@@ -19,7 +19,7 @@ resource "google_compute_http_health_check" "default" {
   timeout_sec        = 1
 }
 
-output "GCLB IP Address" {
-  description = "You can reach your App at"
-  value       = "${google_compute_forwarding_rule.front-forwarding-rule.ip_addr}"
+output "ip_address" {
+  description = "You can reach your Application at"
+  value       = "${google_compute_forwarding_rule.http.ip_address}"
 }

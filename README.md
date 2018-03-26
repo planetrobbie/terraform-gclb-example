@@ -1,5 +1,3 @@
 # TODO
 
-* Github push
-* check output working fine
-* Update content of VM with terraform website using Packer
+* Update content of VM with terraform website using Packer or shell EOF file
