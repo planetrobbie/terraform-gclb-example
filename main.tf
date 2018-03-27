@@ -35,7 +35,11 @@ resource "google_compute_instance" "vm" {
     private_key = "${file(var.key_path)}"
   }
 
-  provisioner "remote-exec" {
-    script = "files/provision.sh"
+  metadata {
+    startup-script = "${file("./files/provision.sh")}"
   }
+
+  #provisioner "remote-exec" {
+  #  script = "files/provision-apache.sh"
+  #}
 }
